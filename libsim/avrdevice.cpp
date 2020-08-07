@@ -293,6 +293,12 @@ int AvrDevice::Step(bool &untilCoreStepFinished, SystemClockOffset *nextStepIn_n
             }
 
             if(EP.end() != find(EP.begin(), EP.end(), PC)) {
+	      for (int i = 0; i < EP.size(); i++)
+		if (EP[i] == PC)
+		  {
+		    avr_message("Found EP %d", i);
+		    exit (i);
+		  }
                 avr_message("Simulation finished!");
                 SystemClock::Instance().Stop();
                 dumpManager->cycle();

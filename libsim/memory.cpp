@@ -59,9 +59,9 @@ unsigned int Memory::GetAddressAtSymbol(const string &s) {
         }
     }
 
-    avr_error("symbol '%s' not found!", s.c_str());
+    //avr_error("symbol '%s' not found!", s.c_str());
 
-    return 0; // to avoid warnings, avr_error aborts the program
+    return -77; // to avoid warnings, avr_error aborts the program
 }
 
 string Memory::GetSymbolAtAddress(unsigned int add){
